@@ -6,7 +6,7 @@ CREATE SCHEMA ecommerce;
 CREATE TABLE IF NOT EXISTS ecommerce."game_genre" (
   "id" SERIAL NOT NULL,
   "genre_name" VARCHAR(255) NULL DEFAULT NULL,
-  PRIMARY KEY ("id"))
+  PRIMARY KEY ("id"));
 
 -- GAME TABLE CREATION
 CREATE TABLE IF NOT EXISTS ecommerce."game" (
@@ -15,11 +15,10 @@ CREATE TABLE IF NOT EXISTS ecommerce."game" (
   "description" VARCHAR(255) DEFAULT NULL,
   "unit_price" NUMERIC(13,2) DEFAULT NULL,
   "image_url" VARCHAR(255) DEFAULT NULL,
-  "active" BIT DEFAULT true,
+  "active" BOOLEAN DEFAULT true,
   "units_in_stock" INT DEFAULT NULL,
-  "date_created" DATETIME(6) DEFAULT NULL,
-  "last_updated" DATETIME(6) DEFAULT NULL,
+  "date_created" TIMESTAMP(6) DEFAULT NULL,
+  "last_updated" TIMESTAMP(6) DEFAULT NULL,
   "genre_id" BIGINT NOT NULL,
   PRIMARY KEY ("id"),
-  FOREIGN KEY ("genre_id") REFERENCES "game_genre" ("id")
-) 
+  FOREIGN KEY ("genre_id") REFERENCES ecommerce."game_genre" ("id"));
