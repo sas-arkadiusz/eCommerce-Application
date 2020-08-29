@@ -7,7 +7,7 @@ import javax.persistence.*;
 import java.util.Set;
 
 @Entity
-@Table(name = "game_genre")
+@Table(name = "game_genre", schema = "ecommerce")
 @Getter
 @Setter
 public class GameGenre {

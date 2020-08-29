@@ -11,7 +11,7 @@ import java.math.BigDecimal;
 import java.util.Date;
 
 @Entity
-@Table(name = "game")
+@Table(name = "game", schema = "ecommerce")
 @Getter
 @Setter
 public class Game {
