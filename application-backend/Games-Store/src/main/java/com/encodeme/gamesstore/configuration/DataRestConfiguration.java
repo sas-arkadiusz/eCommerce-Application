@@ -16,8 +16,8 @@ public class DataRestConfiguration implements RepositoryRestConfigurer {
 
         config.getExposureConfiguration()
                 .forDomainType(Game.class)
-                .withItemExposure((metdata, httpMethods) -> httpMethods.disable(forbiddenHttpMethods))
-                .withCollectionExposure((metdata, httpMethods) -> httpMethods.disable(forbiddenHttpMethods));
+                .withItemExposure((metadata, httpMethods) -> httpMethods.disable(forbiddenHttpMethods))
+                .withCollectionExposure((metadata, httpMethods) -> httpMethods.disable(forbiddenHttpMethods));
 
         config.getExposureConfiguration()
                 .forDomainType(GameGenre.class)
