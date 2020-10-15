@@ -1,1 +1,20 @@
-<p>game-list works!</p>
+<table class="table">
+
+    <thead class="thead-dark">
+        <tr>
+            <th></th>
+            <th>NAZWA</th>
+            <th>CENA</th>
+            <th>DOSTĘPNE SZTUKI</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr *ngFor="let game of games">
+            <td><img src="{{ game.imageUrl }}" height="75"/></td>
+            <td>{{ game.name }}</td>
+            <td>{{ game.unitPrice }} PLN</td>
+            <td>{{ game.unitsInStock }}</td>
+        </tr>
+    </tbody>
+</table>

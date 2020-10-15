@@ -5,7 +5,8 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { GameListComponent } from './components/game-list/game-list.component';
-import { ProductService } from './services/product.service';
+import { GameService } from './services/game.service';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -14,9 +15,10 @@ import { ProductService } from './services/product.service';
   ],
   imports: [
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    NgbModule
   ],
-  providers: [ProductService],
+  providers: [GameService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
