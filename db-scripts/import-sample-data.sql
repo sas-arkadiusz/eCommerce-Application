@@ -12,4 +12,4 @@ VALUES ('Call of Duty WWII', 'First-person shooter video game developed by Sledg
 
 INSERT INTO ECOMMERCE.GAME (NAME, DESCRIPTION, UNIT_PRICE, IMAGE_URL, ACTIVE, UNITS_IN_STOCK, DATE_CREATED, GENRE_ID)
 VALUES ('The Witcher 3', 'Action role-playing game developed and published by CD Projekt.', 
-39.99, 'assets/images/games/witcher3.jpg', true, 150, NOW(), 1);
+39.99, 'assets/images/games/witcher3.jpg', true, 150, NOW(), 2);

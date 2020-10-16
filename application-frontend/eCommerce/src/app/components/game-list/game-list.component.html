@@ -12,7 +12,7 @@
     <tbody>
         <tr *ngFor="let game of games">
             <td><img src="{{ game.imageUrl }}" height="75"/></td>
-            <td>{{ game.name }}</td>
+            <td>{{ game.name }}<br/><span style="font-size: small;">{{ game.description }}</span></td>
             <td>{{ game.unitPrice }} PLN</td>
             <td>{{ game.unitsInStock }}</td>
         </tr>
