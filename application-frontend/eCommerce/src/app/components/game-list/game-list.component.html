@@ -1,20 +1,19 @@
-<table class="table">
+<div class="main-content">
+    <div class="section-content section-content-p30">
+        <div class="container-fluid">
+            <div class="row">
 
-    <thead class="thead-dark">
-        <tr>
-            <th></th>
-            <th>NAZWA</th>
-            <th>CENA</th>
-            <th>DOSTĘPNE SZTUKI</th>
-        </tr>
-    </thead>
+                <div *ngFor="let game of games" class="col-md-4">
+                    <div class="product-box">
+                        <img src="{{ game.imageUrl }}" class="img-responsive"/>
+                        <h1>{{ game.name }}</h1>
+                        <h2>{{ game.description }}</h2>
+                        <div class="price">{{ game.unitPrice }} ZŁ</div>
+                        <a href="#" class="primary-btn">KUP</a>
+                    </div>
+                </div>
 
-    <tbody>
-        <tr *ngFor="let game of games">
-            <td><img src="{{ game.imageUrl }}" height="75"/></td>
-            <td>{{ game.name }}<br/><span style="font-size: small;">{{ game.description }}</span></td>
-            <td>{{ game.unitPrice }} PLN</td>
-            <td>{{ game.unitsInStock }}</td>
-        </tr>
-    </tbody>
-</table>
+            </div>
+        </div>
+    </div>    
+</div>
