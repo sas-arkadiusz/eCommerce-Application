@@ -29,9 +29,9 @@ export class GameListComponent implements OnInit {
     const hasCategoryId: boolean = this.route.snapshot.paramMap.has('category_id');
     // Check if "Language" parameter is available.
     const hasLanguage: boolean = this.route.snapshot.paramMap.has('language_id');
-    const hasSingleplayer: boolean = this.route.snapshot.parent._routerState.url.includes("/singleplayer");
-    const hasMultiplayer: boolean = this.route.snapshot.parent._routerState.url.includes("/multiplayer");
-    const hasVr: boolean = this.route.snapshot.parent._routerState.url.includes("/vr");
+    const hasSingleplayer: boolean = this.route.snapshot.url.join('').includes("singleplayer");
+    const hasMultiplayer: boolean = this.route.snapshot.url.join('').includes("multiplayer");
+    const hasVr: boolean = this.route.snapshot.url.join('').includes("vr");
 
     if(hasCategoryId) {
       // Get the "ID" parameter.
@@ -46,42 +46,36 @@ export class GameListComponent implements OnInit {
 
     // Get the games for the given category ID.
     if(this.currentCategoryId == 0 && this.currentLanguageId == 0 && hasSingleplayer == false && hasMultiplayer == false && hasVr == false) {
-      console.log('eee');
       this.gameService.getAllProductsList().subscribe(
         data => {
           this.games = data;
         }
       )
     } else if(this.currentCategoryId != undefined && this.currentCategoryId != 0) {
-      console.log('ddd');
       this.gameService.getProductListByCategory(this.currentCategoryId).subscribe(
         data => {
           this.games = data;
         }
       )
     } else if(this.currentLanguageId != undefined && this.currentLanguageId != 0) {
-      console.log('aa');
       this.gameService.getProductListByLanguage(this.currentLanguageId).subscribe(
         data => {
           this.games = data;
         }
       )
     } else if(hasSingleplayer != false) {
-      console.log('bbb');
       this.gameService.getProductListBySingleplayer().subscribe(
         data => {
           this.games = data;
         }
       )
     } else if(hasMultiplayer != false) {
-      console.log('ccc');
       this.gameService.getProductListByMultiplayer().subscribe(
         data => {
           this.games = data;
         }
       )
     } else if(hasVr == true) {
-      console.log('aaa');
       this.gameService.getProductListByVr().subscribe(
         data => {
           this.games = data;
