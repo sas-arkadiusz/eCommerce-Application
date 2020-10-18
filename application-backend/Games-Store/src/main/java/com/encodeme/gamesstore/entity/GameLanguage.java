@@ -7,18 +7,18 @@ import javax.persistence.*;
 import java.util.Set;
 
 @Entity
-@Table(name = "game_genre", schema = "ecommerce")
+@Table(name = "game_language", schema = "ecommerce")
 @Getter
 @Setter
-public class GameGenre {
+public class GameLanguage {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long id;
 
-    @Column(name = "genre_name")
-    private String genreName;
+    @Column(name = "language")
+    private String language;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "genre")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "language")
     private Set<Game> games;
 }

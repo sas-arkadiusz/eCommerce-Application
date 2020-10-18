@@ -10,17 +10,46 @@
     <div class="menu-sidebar-content js-scrollbar1">
       <nav class="navbar-sidebar">
         <ul class="list-unstyled navbar-list">
+          <h3>GATUNEK</h3>
           <li>
-            <a href="#">Akcja</a>
+            <a routerLink="/category/7" routerLinkActive="active-link">Akcja</a>
           </li>
           <li>
-            <a href="#">RPG</a>
+            <a routerLink="/category/8" routerLinkActive="active-link">RPG</a>
           </li>
           <li>
-            <a href="#">Sportowe</a>
+            <a routerLink="/category/9" routerLinkActive="active-link">Sportowe</a>
           </li>
           <li>
-            <a href="#">Zręcznościowe</a>
+            <a routerLink="/category/10" routerLinkActive="active-link">Zręcznościowe</a>
+          </li>
+        </ul>
+      </nav>
+      <nav class="navbar-sidebar">
+        <ul class="list-unstyled navbar-list">
+          <h3>WERSJA JĘZYKOWA</h3>
+          <li>
+            <a routerLink="/language/1" routerLinkActive="active-link">Polska</a>
+          </li>
+          <li>
+            <a routerLink="/language/2" routerLinkActive="active-link">Angielska</a>
+          </li>
+          <li>
+            <a routerLink="/language/3" routerLinkActive="active-link">Japońska</a>
+          </li>
+        </ul>
+      </nav>
+      <nav class="navbar-sidebar">
+        <ul class="list-unstyled navbar-list">
+          <h3>TRYB GRY</h3>
+          <li>
+            <a routerLink="/singleplayer" routerLinkActive="active-link">Jednoosobowa</a>
+          </li>
+          <li>
+            <a routerLink="/multiplayer" routerLinkActive="active-link">Wieloosobowa</a>
+          </li>
+          <li>
+            <a routerLink="/vr" routerLinkActive="active-link">VR</a>
           </li>
         </ul>
       </nav>
@@ -36,17 +65,22 @@
         <div class="container-fluid">
           <div class="header-wrap">
             <form class="form-header" onsubmit="return false;" method="GET">
-              <input class="au-input au-input-xl" type="text" name="search" placeholder="Wpisz tytuł gry..." />
+              <input class="au-input au-input-xl" type="text" name="search" placeholder="Wpisz tytuł" />
               <button class="au-btn-submit" type="submit">
                 Szukaj
               </button>
             </form>
             <div class="cart-area d-n">
               <a href="shopping-detail.html">
-                <div class="total">119.98 <span> 2</span> </div> <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                <div class="total-v2">Zaloguj się</div>
               </a>
             </div>
-          </div>
+            <div class="cart-area d-n">
+              <a href="shopping-detail.html">
+                <div class="total">2<span>Koszyk</span></div> <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+              </a>
+            </div>
+          </div>          
           <div class="account-wrap"></div>
         </div>
       </div>
@@ -54,7 +88,7 @@
     <!-- END HEADER DESKTOP-->
 
     <!-- MAIN CONTENT-->
-    <app-game-list></app-game-list>
+    <router-outlet></router-outlet>
 
   </div>
 </div>

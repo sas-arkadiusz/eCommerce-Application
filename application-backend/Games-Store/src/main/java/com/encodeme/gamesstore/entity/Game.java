@@ -15,7 +15,6 @@ import java.util.Date;
 @Getter
 @Setter
 public class Game {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
@@ -24,6 +23,10 @@ public class Game {
     @ManyToOne
     @JoinColumn(name = "genre_id", nullable = false)
     private GameGenre genre;
+
+    @ManyToOne
+    @JoinColumn(name = "language_id", nullable = false)
+    private GameLanguage language;
 
     @Column(name = "name")
     private String name;
@@ -39,6 +42,15 @@ public class Game {
 
     @Column(name = "active")
     private boolean active;
+
+    @Column(name = "has_singleplayer")
+    private boolean hasSingleplayer;
+
+    @Column(name = "has_multiplayer")
+    private boolean hasMultiplayer;
+
+    @Column(name = "has_vr")
+    private boolean hasVr;
 
     @Column(name = "units_in_stock")
     private int unitsInStock;
