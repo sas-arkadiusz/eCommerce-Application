@@ -9,7 +9,10 @@ import { GameService } from './services/game.service';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { Routes, RouterModule } from '@angular/router';
+import { CartStatusComponent } from './components/cart-status/cart-status.component';
+import { SearchComponent } from './components/search/search.component';
 const routes: Routes = [
+  { path: 'search/:keyword', component: GameListComponent },
   { path: 'category/:category_id', component: GameListComponent },
   { path: 'category', component: GameListComponent },
   { path: 'language/:language_id', component: GameListComponent },
@@ -25,7 +28,9 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    GameListComponent
+    GameListComponent,
+    CartStatusComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,

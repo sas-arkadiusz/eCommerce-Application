@@ -13,6 +13,13 @@ export class GameService {
 
   constructor(private httpClient: HttpClient) { }
 
+  searchGames(theKeyword: string): Observable<Game[]> {
+    const searchUrl = `${this.baseUrl}/search/findByNameContaining?name=${theKeyword}`;
+    return this.httpClient.get<GetResponse>(searchUrl).pipe(
+      map(response => response._embedded.games)
+    );
+  }
+
   getAllProductsList(): Observable<Game[]> {
     return this.httpClient.get<GetResponse>(this.baseUrl).pipe(
       map(response => response._embedded.games)

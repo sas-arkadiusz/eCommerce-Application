@@ -1,0 +1,12 @@
+<div class="form-header">
+
+    <input #searchInput type="text" 
+            placeholder="Wpisz tytuł"
+            class="au-input au-input-xl"
+            (keyup.enter)="searchForGame(searchInput.value)" />
+
+    <button (click)="searchForGame(searchInput.value)" style="color:white;">
+      <i class="fas fa-search"></i>
+    </button>
+
+</div>

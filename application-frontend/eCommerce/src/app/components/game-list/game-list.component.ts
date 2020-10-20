@@ -13,6 +13,7 @@ export class GameListComponent implements OnInit {
   games: Game[];
   currentCategoryId: number;
   currentLanguageId: number;
+  searchMode: boolean;
 
   constructor(private gameService: GameService,
               private route: ActivatedRoute) { }
@@ -24,7 +25,26 @@ export class GameListComponent implements OnInit {
   }
 
   listGames() {
+    this.searchMode = this.route.snapshot.paramMap.has('keyword');
 
+    if (this.searchMode) {
+      this.handleSearchGames();
+    } else {
+      this.handleListGames();
+    }    
+
+  }
+
+  handleSearchGames() {
+    const theKeyword: string = this.route.snapshot.paramMap.get('keyword');
+    this.gameService.searchGames(theKeyword).subscribe(
+      data => {
+        this.games = data;
+      }
+    )
+  }
+
+  handleListGames() {
     // Check if "ID" parameter is available.
     const hasCategoryId: boolean = this.route.snapshot.paramMap.has('category_id');
     // Check if "Language" parameter is available.
@@ -83,5 +103,4 @@ export class GameListComponent implements OnInit {
       )
     }
   }
-
 }
