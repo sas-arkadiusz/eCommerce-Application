@@ -15,6 +15,8 @@ import { GameDetailsComponent } from './components/game-details/game-details.com
 import { CartDetailsComponent } from './components/cart-details/cart-details.component';
 import { CheckoutComponent } from './components/checkout/checkout.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { LoginComponent } from './components/login/login.component';
+import { LoginPageComponent } from './components/login-page/login-page.component';
 const routes: Routes = [
   { path: 'games/:id', component: GameDetailsComponent },
   { path: 'search/:keyword', component: GameListComponent },
@@ -27,6 +29,7 @@ const routes: Routes = [
   { path: 'vr', component: GameListComponent },
   { path: 'cart-details', component: CartDetailsComponent },
   { path: 'checkout', component: CheckoutComponent },
+  { path: 'login', component: LoginPageComponent },
   { path: 'games', component: GameListComponent },
   { path: '', redirectTo: '/games', pathMatch: 'full' },
   { path: '**', redirectTo: '/games', pathMatch: 'full' },
@@ -40,7 +43,9 @@ const routes: Routes = [
     SearchComponent,
     GameDetailsComponent,
     CartDetailsComponent,
-    CheckoutComponent
+    CheckoutComponent,
+    LoginComponent,
+    LoginPageComponent
   ],
   imports: [
     BrowserModule,

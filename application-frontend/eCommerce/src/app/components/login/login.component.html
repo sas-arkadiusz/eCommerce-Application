@@ -1,0 +1,9 @@
+<div class="cart-area d-n">
+    <button routerLink="login" class="btn btn-primiary btn-sm">
+            <div *ngIf="username.length === 0" class="total-v2">Zaloguj się</div>
+            <div *ngIf="username.length > 0" class="total-v2">Witaj, {{ username }}!</div>
+    </button>
+    <button *ngIf="username.length > 0" (click)="logout()" class="btn btn-primiary btn-sm">
+        <div  class="total-v2">Wyloguj się</div>
+    </button>
+</div>
