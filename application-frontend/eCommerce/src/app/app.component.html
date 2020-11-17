@@ -3,7 +3,7 @@
   <!-- MENU SIDEBAR-->
   <aside class="menu-sidebar d-none d-lg-block">
     <div class="logo">
-      <a href="#">
+      <a routerLink="/games">
         <img src="assets/images/main-logo.png" alt="main-logo">
       </a>
     </div>
@@ -72,11 +72,9 @@
                 <div class="total-v2">Zaloguj się</div>
               </a>
             </div>
-            <div class="cart-area d-n">
-              <a href="shopping-detail.html">
-                <div class="total">2<span>Koszyk</span></div> <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-              </a>
-            </div>
+
+            <app-cart-status></app-cart-status>
+
           </div>          
           <div class="account-wrap"></div>
         </div>

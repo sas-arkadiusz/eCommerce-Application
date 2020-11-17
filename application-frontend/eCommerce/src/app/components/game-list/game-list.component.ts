@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { CartItem } from 'src/app/common/cart-item';
 import { Game } from 'src/app/common/game';
+import { CartService } from 'src/app/services/cart.service';
 import { GameService } from 'src/app/services/game.service';
 
 @Component({
@@ -16,6 +18,7 @@ export class GameListComponent implements OnInit {
   searchMode: boolean;
 
   constructor(private gameService: GameService,
+              private cartService: CartService,
               private route: ActivatedRoute) { }
 
   ngOnInit(): void {
@@ -102,5 +105,10 @@ export class GameListComponent implements OnInit {
         }
       )
     }
+  }
+
+  addToCart(game: Game) {
+    const cartItem = new CartItem(game);
+    this.cartService.addToCart(cartItem);
   }
 }

@@ -729,11 +729,21 @@ table.table.table-bordered th{
  .price{
     margin:15px 0 0;
     font-weight:800;
-    color:#0da8e4
+    color:#ee4554;
 }
+
 .detail-section{
-    margin-top:60px
+    margin-top:60px;
+    margin-left: 10px;
+    margin-bottom: 102px;
 }
+
+.detail-img {
+    margin-top:60px;
+    margin-bottom: 10px;
+    width: 20%;
+}
+
 /**/
 
 /* 
@@ -741,6 +751,12 @@ table.table.table-bordered th{
  * Buttons
  * ----------------------------
  */
+
+.btn {
+    color:#fff;
+    background-color:#ff4554!important;
+    border-color:#ff4554!important
+}
 
  .btn-info{
     color:#fff;
@@ -833,7 +849,7 @@ footer ul li{
         font-size:22px;
         float:left;
         margin-top:16px;
-        color:#205b8d;
+        color:#fff;
         margin-left:15px
     }
     .header-mobile .header-mobile-bar{
@@ -950,7 +966,7 @@ footer ul li{
         margin-right:15px
     }
         .main-content.page-m{
-        padding:10% 0!important
+        padding:10% 30% 10% 5%;
     }
     .header-mobile .navbar-mobile{
         display:none;

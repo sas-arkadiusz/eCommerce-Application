@@ -20,6 +20,11 @@ export class GameService {
     );
   }
 
+  getGameById(gameId: number): Observable<Game> {
+    const gameUrl = `${this.baseUrl}/${gameId}`;
+    return this.httpClient.get<Game>(gameUrl);
+  }
+
   getAllProductsList(): Observable<Game[]> {
     return this.httpClient.get<GetResponse>(this.baseUrl).pipe(
       map(response => response._embedded.games)

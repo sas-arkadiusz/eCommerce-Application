@@ -14,6 +14,8 @@ public class DataRestConfiguration implements RepositoryRestConfigurer {
     public void configureRepositoryRestConfiguration(RepositoryRestConfiguration config) {
         HttpMethod[] forbiddenHttpMethods = { HttpMethod.PUT, HttpMethod.POST, HttpMethod.DELETE};
 
+        config.exposeIdsFor(Game.class);
+
         config.getExposureConfiguration()
                 .forDomainType(Game.class)
                 .withItemExposure((metadata, httpMethods) -> httpMethods.disable(forbiddenHttpMethods))

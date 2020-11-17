@@ -1,0 +1,17 @@
+<div class="detail-section">
+    <div class="container-fluid">
+        
+        <img src="{{ game.imageUrl }}" class="detail-img">
+
+        <h3>{{ game.name }}</h3>
+        <div class="price">{{ game.unitPrice }} zł</div>
+        <button (click)="addToCart()" class="btn btn-primary btn-sm">Dodaj do koszyka</button>
+
+        <hr>
+        <h4>Opis</h4>
+        <p>{{ game.description }}</p>
+
+        <a routerLink="/games" class="mt-3">Powrót do Głównego Menu</a>
+
+    </div>
+</div>

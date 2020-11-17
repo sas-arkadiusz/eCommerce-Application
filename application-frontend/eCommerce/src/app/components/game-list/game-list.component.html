@@ -5,11 +5,20 @@
 
                 <div *ngFor="let game of games" class="col-md-4">
                     <div class="product-box">
-                        <img src="{{ game.imageUrl }}" class="img-responsive"/>
-                        <h1>{{ game.name }}</h1>
+                        
+                        <a routerLink="/games/{{ game.id }}">
+                            <img src="{{ game.imageUrl }}" class="img-responsive"/>
+                        </a>
+
+                        <br/>
+
+                        <a routerLink="/games/{{ game.id }}">
+                            <h1>{{ game.name }}</h1>
+                        </a>
+
                         <h2>{{ game.description }}</h2>
                         <div class="price">{{ game.unitPrice }} ZŁ</div>
-                        <a href="#" class="primary-btn">KUP</a>
+                        <button (click)="addToCart(game)" class="btn btn-primary btn-sm">KUP</button>
                     </div>
                 </div>
 

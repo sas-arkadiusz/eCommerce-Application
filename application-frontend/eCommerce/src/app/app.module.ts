@@ -11,7 +11,12 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { Routes, RouterModule } from '@angular/router';
 import { CartStatusComponent } from './components/cart-status/cart-status.component';
 import { SearchComponent } from './components/search/search.component';
+import { GameDetailsComponent } from './components/game-details/game-details.component';
+import { CartDetailsComponent } from './components/cart-details/cart-details.component';
+import { CheckoutComponent } from './components/checkout/checkout.component';
+import { ReactiveFormsModule } from '@angular/forms';
 const routes: Routes = [
+  { path: 'games/:id', component: GameDetailsComponent },
   { path: 'search/:keyword', component: GameListComponent },
   { path: 'category/:category_id', component: GameListComponent },
   { path: 'category', component: GameListComponent },
@@ -20,6 +25,8 @@ const routes: Routes = [
   { path: 'singleplayer', component: GameListComponent },
   { path: 'multiplayer', component: GameListComponent },
   { path: 'vr', component: GameListComponent },
+  { path: 'cart-details', component: CartDetailsComponent },
+  { path: 'checkout', component: CheckoutComponent },
   { path: 'games', component: GameListComponent },
   { path: '', redirectTo: '/games', pathMatch: 'full' },
   { path: '**', redirectTo: '/games', pathMatch: 'full' },
@@ -30,13 +37,17 @@ const routes: Routes = [
     AppComponent,
     GameListComponent,
     CartStatusComponent,
-    SearchComponent
+    SearchComponent,
+    GameDetailsComponent,
+    CartDetailsComponent,
+    CheckoutComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     NgbModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    ReactiveFormsModule
   ],
   providers: [GameService],
   bootstrap: [AppComponent]

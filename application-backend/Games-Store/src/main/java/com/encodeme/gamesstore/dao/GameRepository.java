@@ -16,5 +16,6 @@ public interface GameRepository extends JpaRepository<Game, Long> {
     Page<Game> findByHasSingleplayerTrue(Pageable pageable);
     Page<Game> findByHasMultiplayerTrue(Pageable pageable);
     Page<Game> findByHasVrTrue(Pageable pageable);
+    Page<Game> findByNameContaining(@RequestParam("name") String name, Pageable pageable);
 
 }

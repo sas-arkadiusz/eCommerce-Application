@@ -1,0 +1,69 @@
+<div class="main-content">
+    <div class="section-content section-content-p30">
+        <div class="container-fluid">
+
+            <div *ngIf="cartItems.length > 0">
+                <table class="table table-bordered">
+                    <tr>
+                        <th width="20%">Okładka</th>
+                        <th width="50%">Szczegóły</th>
+                        <th width="30%"></th>
+                    </tr>
+                    <tr *ngFor="let cartItem of cartItems">
+                        <td>
+                            <img src="{{ cartItem.imageUrl }}" class="img=resposive" width="150px" />
+                        </td>
+                        <td>
+                            <p>{{ cartItem.name }}</p>
+                            <p>{{ cartItem.unitPrice }} ZŁ</p>
+                        </td>
+                        <td>
+                            <div class="items">
+                                <label>Liczba zamówionych egzemplarzy:</label>
+                                <div class="row no-gutters">
+                                    <div class="col">
+                                        <button (click)="decrementQuantity(cartItem)" class="btn btn-primiary btn-sm">
+                                            <i class="fas fa-minus"></i>
+                                        </button>
+                                    </div>
+
+                                    <div class="col ml-4 mr-3">
+                                        {{ cartItem.quantity }}
+                                    </div>
+
+                                    <div class="col">
+                                        <button (click)="incrementQuantity(cartItem)" class="btn btn-primiary btn-sm">
+                                            <i class="fas fa-plus"></i>
+                                        </button>
+                                    </div>
+
+                                    <div class="col-8"></div>
+                                </div>
+                            </div>
+
+                            <button (click)="remove(cartItem)" class="btn btn-primary btn-sm mt-2">
+                                Usuń z koszyka
+                            </button>
+                            <p class="mt-2">Łączna cena: {{ (cartItem.quantity * cartItem.unitPrice).toFixed(2) }} ZŁ</p>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td colspan="2"></td>
+                        <td style="font-weight: bold;">
+                            <p>Liczba zamówionych gier: {{ totalQuantity }}</p>
+                            <p>Koszt przesyłki: 11.99 ZŁ</p>
+                            <p>Suma: {{ (totalPrice + 11.99).toFixed(2)}} ZŁ</p>
+                            <a routerLink="/checkout" class="btn btn-primiary btn-sm mt-2">ZAMÓW</a>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <div *ngIf="cartItems.length == 0" class="alert alert-warning col-md-12" role="alert">
+                Twój koszyk jest pusty!
+            </div>
+
+        </div>
+    </div>
+</div>
