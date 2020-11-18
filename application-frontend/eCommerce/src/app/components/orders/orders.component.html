@@ -1,0 +1,36 @@
+<div class="main-content">
+    <div class="section-content section-content-p30">
+        <div class="container-fluid">
+
+            <div *ngIf="orders.length > 0">
+                <table class="table table-bordered">
+                    <tr>
+                        <th width="20%">ID</th>
+                        <th width="30%">Liczba zamówionych gier</th>
+                        <th width="30%">Zapłacono</th>
+                        <th width="20%">Data zamówienia</th>
+                    </tr>
+                    <tr *ngFor="let order of orders">
+                        <td>
+                            <p>{{ order.id }}</p>
+                        </td>
+                        <td>
+                            <p>{{ order.totalQuantity }}</p>
+                        </td>
+                        <td>
+                            <p>{{ order.totalPrice }} ZŁ</p>
+                        </td>
+                        <td>
+                            <p>{{ order.date  | date:'yyyy-MM-dd hh-mm-ss' }}</p>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <div *ngIf="orders?.length == 0" class="alert alert-warning col-md-12" role="alert">
+                Brak znalezionych zamówień!
+            </div>
+
+        </div>
+    </div>
+</div>

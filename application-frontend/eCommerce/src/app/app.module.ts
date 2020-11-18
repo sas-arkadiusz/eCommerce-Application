@@ -19,6 +19,7 @@ import { LoginComponent } from './components/login/login.component';
 import { LoginPageComponent } from './components/login-page/login-page.component';
 import { AboutUsComponent } from './components/about-us/about-us.component';
 import { ContactComponent } from './components/contact/contact.component';
+import { OrdersComponent } from './components/orders/orders.component';
 const routes: Routes = [
   { path: 'games/:id', component: GameDetailsComponent },
   { path: 'search/:keyword', component: GameListComponent },
@@ -34,6 +35,7 @@ const routes: Routes = [
   { path: 'login', component: LoginPageComponent },
   { path: 'about-us', component: AboutUsComponent },
   { path: 'contact', component: ContactComponent },
+  { path: 'orders', component: OrdersComponent },
   { path: 'games', component: GameListComponent },
   { path: '', redirectTo: '/games', pathMatch: 'full' },
   { path: '**', redirectTo: '/games', pathMatch: 'full' },
@@ -51,7 +53,8 @@ const routes: Routes = [
     LoginComponent,
     LoginPageComponent,
     AboutUsComponent,
-    ContactComponent
+    ContactComponent,
+    OrdersComponent
   ],
   imports: [
     BrowserModule,

@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { CartItem } from 'src/app/common/cart-item';
+import { Order } from 'src/app/common/order';
 import { CartService } from 'src/app/services/cart.service';
+import { OrdersService } from 'src/app/services/orders.service';
 
 @Component({
   selector: 'app-checkout',
@@ -19,7 +21,8 @@ export class CheckoutComponent implements OnInit {
   purchaseIsDone: boolean = false;
 
   constructor(private formBuilder: FormBuilder,
-              private cartService: CartService) { }
+              private cartService: CartService,
+              private oderService: OrdersService) { }
 
   ngOnInit(): void {
     this.listCartDetails();
@@ -49,6 +52,13 @@ export class CheckoutComponent implements OnInit {
       this.checkoutFormGroup.get('shippingAddress').value.state != "" &&
       this.checkoutFormGroup.get('shippingAddress').value.zipCode != "" 
     ) {
+      let order: Order = new Order();
+      order.id = Math.floor((Math.random() * 100000) + 1);
+      order.totalPrice = this.totalPrice;
+      order.totalQuantity = this.totalQuantity;
+      order.date = new Date();
+      this.oderService.addOrder(order);
+
       this.removeAll();
       this.shouldFormBeFixed = false;
       this.purchaseIsDone = true;

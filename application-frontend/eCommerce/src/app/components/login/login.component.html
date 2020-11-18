@@ -6,4 +6,7 @@
     <button *ngIf="username.length > 0" (click)="logout()" class="btn btn-primiary btn-sm">
         <div  class="total-v2">Wyloguj się</div>
     </button>
+    <a *ngIf="username.length > 0" routerLink="orders" class="btn btn-primiary btn-sm">
+        <div  class="total-v2">Moje zamówienia</div>
+    </a>
 </div>
